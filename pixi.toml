@@ -1,0 +1,29 @@
+[workspace] 
+channels = ["https://prefix.dev/conda-forge"]
+name = "gorillinput"
+platforms = ["win-64", "linux-64", "linux-aarch64", "osx-arm64", "osx-64"]
+preview = ["pixi-build"]
+
+[dependencies] 
+python = "*"
+sdl2 = "*"
+sdl2_image = "*"
+
+[pypi-dependencies] 
+gorillinput = { path = "." , editable=true}
+
+[tasks] 
+start = "python3 -m gorillinput.example"
+
+# [package] 
+# name = "gorillinput"
+# version = "0.0.0"
+#
+# [package.build] 
+# backend = { name = "pixi-build-python", version = "==0.4.0" }
+#
+# [package.host-dependencies] 
+# hatchling = "==1.26.3"
+#
+# [package.run-dependencies] 
+# rich = "13.9.*"
