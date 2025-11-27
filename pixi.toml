@@ -15,6 +15,39 @@ gorillinput = { path = "." , editable=true}
 [tasks] 
 start = "python3 -m gorillinput.example"
 
+[environments]
+humble = { features = ["humble"] }
+jazzy = { features = ["jazzy"] }
+kilted = { features = ["kilted"] }
+
+### ROS Humble ####
+[feature.humble]
+channels = ["https://prefix.dev/robostack-humble"]
+
+[feature.humble.dependencies]
+ros-humble-ros-core = "*"
+ros-humble-rmw-zenoh-cpp = "*"
+
+[feature.jazzy.tasks]
+node = "python3 -m gorillinput.ros_node"
+
+### ROS Jazzy ####
+[feature.jazzy]
+channels = ["https://prefix.dev/robostack-jazzy"]
+
+[feature.jazzy.dependencies]
+ros-jazzy-ros-core = "*"
+ros-jazzy-rmw-zenoh-cpp = "*"
+
+### ROS Kilted ####
+[feature.kilted]
+channels = ["https://prefix.dev/robostack-kilted"]
+
+[feature.kilted.dependencies]
+ros-kilted-ros-core = "*"
+ros-kilted-rmw-zenoh-cpp = "*"
+
+
 # [package] 
 # name = "gorillinput"
 # version = "0.0.0"

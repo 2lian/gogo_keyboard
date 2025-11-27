@@ -48,6 +48,13 @@ class KeySub(BaseSub[Key]):
         self,
         termination_callback: Callable[[], Any] = raise_keyboard_interupt,
     ) -> None:
+        """Creates a sdl2 window with an asyncio_for_robotics subcriber getting
+        the key presses inputed in the window.
+
+        Args:
+            termination_callback: Will be called when the Gorilla window is
+                closed by the user.
+        """
         self.termination_callback: Callable[[], Any] = termination_callback
         r, g, b = colorsys.hsv_to_rgb(random.random(), (random.random() + 1) / 2, 1)
         self.idle_color: Tuple[int, int, int] = int(r * 255), int(g * 255), int(b * 255)
@@ -96,6 +103,7 @@ class KeySub(BaseSub[Key]):
         return "Gorillinput"
 
     def close(self):
+        self.window.close()
         sdl2.ext.quit()
         self._sdl_thread.cancel()
 
@@ -113,6 +121,10 @@ class KeySub(BaseSub[Key]):
         self.renderer = sdl2.ext.Renderer(self.window)
         self.window.show()
         self.texture_frame = sdl2.SDL_Rect(0, 0, 150, 150)  # x, y, width, height
+
+    def _on_window_close(self):
+        self.close()
+        self.termination_callback()
 
     def _draw(self):
         self.renderer.color = (
@@ -140,7 +152,7 @@ class KeySub(BaseSub[Key]):
             for e in events:
                 if e.type == sdl2.SDL_QUIT:
 
-                    self.termination_callback()
+                    self._on_window_close()
                     return
 
                 elif e.type == sdl2.SDL_KEYDOWN:
