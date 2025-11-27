@@ -1,4 +1,6 @@
 import asyncio
+import json
+from dataclasses import asdict
 
 import sdl2
 import sdl2.ext
@@ -21,7 +23,7 @@ async def detect_CtrlC(key_sub: KeySub):
 
 async def print_keys(key_sub: KeySub):
     async for k in key_sub.listen_reliable():
-        print(k)
+        print(json.dumps({k: str(v) for k,v in asdict(k).items()}, indent=4))
 
 
 async def async_main():
