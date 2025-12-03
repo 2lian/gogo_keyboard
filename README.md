@@ -1,7 +1,7 @@
 # Gogo Keyboard
 ## Press keyboard 🦍 Get key 🦍  Unga Bunga
 
-Python Asyncio library to simply get keyboard presses (up and down). Gogo Keyboard creates a new independent SDL2 window that captures the key presses. And it also works with ROS 2.
+Python Asyncio library to simply get keyboard presses and releases. Gogo Keyboard creates a new independent SDL2 window that captures the key events. And it can also works with ROS 2.
 
 ```python3
 pip install https://github.com/2lian/gogo_keyboard.git[dll]
