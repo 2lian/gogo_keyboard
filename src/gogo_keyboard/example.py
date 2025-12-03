@@ -29,7 +29,7 @@ async def print_keys(key_sub: KeySub):
 async def async_main():
     window_closed_event = asyncio.Event()
     key_sub = KeySub(
-        # termination_callback=window_closed_event.set,
+        termination_callback=window_closed_event.set,
     )
 
     try:
