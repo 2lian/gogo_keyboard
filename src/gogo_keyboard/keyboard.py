@@ -69,7 +69,6 @@ class KeySub(BaseSub[Key]):
         self._init_sdl()
         self._sdl_thread: asyncio.Task = asyncio.create_task(self._sdl_loop())
 
-        print(str(files("gogo_keyboard").joinpath("gogo.png")))
         self.texture_idle = sdl2.SDL_CreateTextureFromSurface(
             self.renderer.sdlrenderer,
             sdl2.ext.load_img(
