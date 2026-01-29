@@ -10,7 +10,7 @@ python3 -m gogo_keyboard.example
 
 Motivation:
 - Nothing complicated. Safe.
-- Get key presses in Asyncio.
+- Get key presses and releases in Asyncio.
 - Leave the python terminal free for other tasks.
 - User only interacts when clicking on the Gorilla.
 - Works with if necessary ROS 2.
