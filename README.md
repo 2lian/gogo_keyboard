@@ -21,7 +21,7 @@ Motivation:
   - Zenoh
   - More
 
-| ![python](https://github.com/2lian/gogo_keyboard/media/Screenshot1.png) | ![python](https://github.com/2lian/gogo_keyboard/media/Screenshot2.png) | ![python](https://github.com/2lian/gogo_keyboard/media/Screenshot3.png) |
+| ![python](https://github.com/2lian/gogo_keyboard/blob/main/media/Screenshot1.png) | ![python](https://github.com/2lian/gogo_keyboard/blob/main/media/Screenshot2.png) | ![python](https://github.com/2lian/gogo_keyboard/blob/main/media/Screenshot3.png) |
 |---|---|---|
 
 ## Installation
@@ -36,7 +36,7 @@ Conda pacakge: soon!
 
 ## Python Example
 
-Example is [provided here](https://github.com/2lian/gogo_keyboard/src/gogo_keyboard/example.py) and can be run with `python3 -m gogo_keyboard.example`.
+Example is [provided here](https://github.com/2lian/gogo_keyboard/blob/main/src/gogo_keyboard/example.py) and can be run with `python3 -m gogo_keyboard.example`.
 
 Here is a minimal piece of working code:
 
@@ -54,8 +54,8 @@ asyncio.run(async_main())
 
 ## ROS 2 Example (Humble, Jazzy, Kilted)
 
-A very simple ROS 2 node is [provided here](https://github.com/2lian/gogo_keyboard/src/gogo_keyboard/ros_node.py), run it with `python3 -m gogo_keyboard.ros_node`. The messages format is a `json` formatted `String`, 🦍 simple 🦍  Unga Bunga.
+A very simple ROS 2 node is [provided here](https://github.com/2lian/gogo_keyboard/blob/main/src/gogo_keyboard/ros_node.py), run it with `python3 -m gogo_keyboard.ros_node`. The messages format is a `json` formatted `String`, 🦍 simple 🦍  Unga Bunga.
 
 ## Zenoh Example
 
-A very simple Zenoh publisher is [provided here](https://github.com/2lian/gogo_keyboard/src/gogo_keyboard/zenoh_node.py), run it with `python3 -m gogo_keyboard.zenoh_node`. The messages format is a `json` formatted `String`, 🦍 simple 🦍  Unga Bunga.
+A very simple Zenoh publisher is [provided here](https://github.com/2lian/gogo_keyboard/blob/main/src/gogo_keyboard/zenoh_node.py), run it with `python3 -m gogo_keyboard.zenoh_node`. The messages format is a `json` formatted `String`, 🦍 simple 🦍  Unga Bunga.
