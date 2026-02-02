@@ -1,9 +1,7 @@
-"""ROS2 node that publishes keyboard events as JSON-encoded std_msgs/String messages.
+"""Zenoh publisher that publishes keyboard events as JSON-encoded messages.
 
 Run using:
-    - python3 -m gogo_keyboard.ros_node
-    - python3 -m gogo_keyboard.ros_node -t my_topic
-    - python3 -m gogo_keyboard.ros_node --topic my_topic
+    - python3 -m gogo_keyboard.zenoh_node
 """
 
 import argparse
@@ -20,17 +18,17 @@ from gogo_keyboard.keyboard import Key, KeySub
 
 
 def make_msg(key: Key) -> str:
-    """Convert a Key object into a JSON-encoded ROS String message."""
+    """Convert a Key object into a JSON-encoded message."""
     dict_key = asdict(key)
     del dict_key["sdl_event"]
     return json.dumps(dict_key)
 
 
 async def async_main(topic: str = "key_press", config_path: Optional[str] = None):
-    """Run the async keyboard listener and publish key events to a ROS2 topic.
+    """Run the async keyboard listener and publish key events to a zenoh key_expr.
 
     Args:
-        topic: ROS2 topic to publish key events to
+        topic: key_expr to publish key events to
     """
     if config_path is None:
         config = zenoh.Config()
