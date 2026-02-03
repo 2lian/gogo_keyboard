@@ -5,11 +5,13 @@ Run using:
     - python3 -m gogo_keyboard.ros_node -t my_topic
     - python3 -m gogo_keyboard.ros_node --topic my_topic
 """
+
 import argparse
 import asyncio
 import json
 from contextlib import suppress
 from dataclasses import asdict
+from typing import Any, Dict
 
 import rclpy
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
@@ -18,11 +20,12 @@ from std_msgs.msg import String
 from gogo_keyboard.keyboard import Key, KeySub
 
 
-def make_ros_msg(key: Key) -> String:
+def make_dict_from_k(key: Key) -> Dict[str, Any]:
     """Convert a Key object into a JSON-encoded ROS String message."""
-    dict_key = asdict(key)
+    dict_key = {"header": None}
+    dict_key.update( asdict(key))
     del dict_key["sdl_event"]
-    return String(data=json.dumps(dict_key))
+    return dict_key
 
 
 async def async_main(topic: str = "key_press"):
@@ -33,6 +36,7 @@ async def async_main(topic: str = "key_press"):
     """
     rclpy.init()
     node = rclpy.create_node("gogo_keyboard")
+    clock = node.get_clock()
     pub = node.create_publisher(
         String,
         topic,
@@ -47,9 +51,15 @@ async def async_main(topic: str = "key_press"):
         f"🦍🦍_keyboard publishing onto `{node.resolve_topic_name(pub.topic)}`. \nListen using `ros2 topic echo {node.resolve_topic_name(pub.topic)}`"
     )
     try:
+        count = 0
         async for key in key_sub.listen_reliable():
-            msg = make_ros_msg(key)
-            pub.publish(msg)
+            count += 1
+            msg: Dict[str, Any] = make_dict_from_k(key)
+            msg["header"] = {
+                "time_ns": clock.now().nanoseconds,
+                "count": count,
+            }
+            pub.publish(String(data=json.dumps(msg)))
     finally:
         print(f"gogo_keyboard exiting.")
         key_sub.close()

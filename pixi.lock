@@ -1688,17 +1688,12 @@ packages:
   timestamp: 1748320119582
 - pypi: ./
   name: gogo-keyboard
-  version: 0.0.0
-  sha256: 461a62176f64a4ef2ec151a992e7f94041eb3d2bd336c81c5d15c8f85a696be5
+  version: 1.0.1
+  sha256: 629a2eec51e412f3ba56420aad0cad6526b94cbd1dca22cff4ceb030dea53ef7
   requires_dist:
   - asyncio-for-robotics>=1.0.0
   - pysdl2>=0.9.0
   - pysdl2-dll ; extra == 'dll'
-  - colorama ; extra == 'dev'
-  - pytest ; extra == 'dev'
-  - pytest-asyncio ; extra == 'dev'
-  - build ; extra == 'build'
-  - twine ; extra == 'build'
   requires_python: '>=3.10'
 - conda: https://prefix.dev/conda-forge/linux-64/gtest-1.17.0-h84d6215_1.conda
   sha256: 1f738280f245863c5ac78bcc04bb57266357acda45661c4aa25823030c6fb5db

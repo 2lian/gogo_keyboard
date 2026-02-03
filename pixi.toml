@@ -24,6 +24,7 @@ zenoh = { features = ["zenoh"] }
 
 [feature.jazzy.tasks]
 ros_node = "python3 -m gogo_keyboard.ros_node"
+ros_listener = "ros2 topic echo /key_press"
 
 ### ROS Jazzy ####
 [feature.jazzy]
