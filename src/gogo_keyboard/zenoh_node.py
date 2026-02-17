@@ -42,7 +42,7 @@ async def async_main(topic: str = "key_press", config_path: Optional[str] = None
             f"🦍🦍_keyboard publishing onto `{pub.key_expr}`. \nListen using `python3 -m gogo_keyboard._zenoh_simple_listener`"
         )
         try:
-            async for key in key_sub.listen_reliable():
+            async for key in key_sub.listen_reliable(exit_on_close=True):
                 msg = make_msg(key)
                 pub.put(msg)
         finally:

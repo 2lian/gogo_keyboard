@@ -52,7 +52,7 @@ async def async_main(topic: str = "key_press"):
     )
     try:
         count = 0
-        async for key in key_sub.listen_reliable():
+        async for key in key_sub.listen_reliable(exit_on_close=True):
             count += 1
             msg: Dict[str, Any] = make_dict_from_k(key)
             msg["header"] = {

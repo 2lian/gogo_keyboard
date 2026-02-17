@@ -39,14 +39,10 @@ class Key:
         )
 
 
-def raise_keyboard_interupt():
-    raise KeyboardInterrupt
-
-
 class KeySub(BaseSub[Key]):
     def __init__(
         self,
-        termination_callback: Callable[[], Any] = raise_keyboard_interupt,
+        termination_callback: Callable[[], Any] = lambda *_: None,
     ) -> None:
         """Creates a sdl2 window with an asyncio_for_robotics subcriber getting
         the key presses inputed in the window.
@@ -105,6 +101,7 @@ class KeySub(BaseSub[Key]):
         self.window.close()
         sdl2.ext.quit()
         self._sdl_thread.cancel()
+        super().close()
 
     def _scancode_to_color(self, scancode):
         return scancode_to_color(scancode)

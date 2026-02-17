@@ -45,7 +45,7 @@ eclipse-zenoh = ">=1.0.0"
 
 [package]
 name = "gogo_keyboard"
-version = "0.0.0"
+version = "1.0.2"
 
 [package.build]
 backend = { name = "pixi-build-python", version = "==0.4.0" }
@@ -56,9 +56,7 @@ setuptools = ">=58.2.0"
 [package.run-dependencies]
 gogo_keyboard = { path = "."}
 python = ">=3.10"
-asyncio_for_robotics = ">=1.2.4,<2"
-# asyncio_for_robotics = { path = "~/asyncio-for-robotics"}
+asyncio_for_robotics = ">=1.3.1,<2"
 pysdl2 = ">=0.9.0"
-# pysdl2 = { path = "~/py-sdl2-conda-aarch"}
 sdl2 = ">=2.0.0"
 sdl2_image = ">=2.0.0"
