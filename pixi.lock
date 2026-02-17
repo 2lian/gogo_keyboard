@@ -1626,8 +1626,8 @@ packages:
   timestamp: 1748320119582
 - pypi: ./
   name: gogo-keyboard
-  version: 1.0.1
-  sha256: 75af28f28fc97e4bc0eea4fbf943f2f953c592cee0d45c3fc2f42628bfc5e242
+  version: 1.0.2
+  sha256: ff052cc0f0184de3593475b5645f194c395ea5e0e3ff83523bd0b5af1b1bdbac
   requires_dist:
   - asyncio-for-robotics>=1.3.1
   - pysdl2>=0.9.0
