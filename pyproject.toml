@@ -1,6 +1,6 @@
 [project]
 name = "gogo_keyboard"
-version = "1.0.2"
+version = "1.0.3"
 description = "Press keyboard 🦍 Get key 🦍 Python Asyncio for Robotics"
 readme = "README.md"
 license = "MIT"

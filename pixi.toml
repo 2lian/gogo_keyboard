@@ -45,7 +45,7 @@ eclipse-zenoh = ">=1.0.0"
 
 [package]
 name = "gogo_keyboard"
-version = "1.0.2"
+version = "1.0.3"
 
 [package.build]
 backend = { name = "pixi-build-python", version = "==0.4.0" }
